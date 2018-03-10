@@ -1,0 +1,46 @@
+#include<graphics.h>
+#include<conio.h>
+#include<math.h>
+#include "mytimer.h"
+
+void show_1()
+{
+	//背景图
+	//眼睛位置
+	//尸体位置                                        //写一个尸体下落的函数——————————第一顺位任务——————————//
+	//齿轮
+}
+void move_1()
+{
+	MyTimer tt;
+	while (true)
+	{
+		tt.Sleep(25);
+		t = sqrt(2 * HIGH / G) / 14;                      //宏定义 和 全局变量 应该放在头文件里？？？？？
+		if (_kbhit() && win == 0)
+		{
+			c = GetCommand();                             //c得到的是一个二进制数，每一位储存独立信息
+			if (c&CMD_LEFT)                               //如果第一位是一，执行向左走
+				left();
+			if (c&CMD_RIGHT)                              //如果第二位是一，执行向右走
+				right();
+			if ((c&CMD_UP) && role.jump == 0)
+				up();
+			if (c&CMD_ESC)
+			{
+				pause = 1;
+				break;
+			}
+			else
+				n = 0;
+		}
+		BeginBatchDraw();
+		show_1();
+		FlushBatchDraw();
+	}
+	
+}
+void level1()
+{
+	
+}
